@@ -1,4 +1,3 @@
-
 var canvas = document.getElementById('canvas');
 		setCanvasSize()
 		
@@ -115,4 +114,4 @@ var canvas = document.getElementById('canvas');
 		brush.onclick = function(){
 		  eraserEnabled = false
 		  actions.className = 'actions'
-        }
+		}
