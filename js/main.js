@@ -1,4 +1,4 @@
-<script type="text/javascript">
+
 var canvas = document.getElementById('canvas');
 		setCanvasSize()
 		
@@ -116,4 +116,3 @@ var canvas = document.getElementById('canvas');
 		  eraserEnabled = false
 		  actions.className = 'actions'
         }
-    </script>
