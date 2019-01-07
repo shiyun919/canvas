@@ -63,46 +63,95 @@
 		/****/
 		var context = canvas.getContext('2d');//2d是二次元的意思
 		var using = false
-		var lastPoint = {'x':undefined, 'y':undefined}
-		//监听鼠标按下
-		canvas.onmousedown = function(aaa){
-			var x = aaa.clientX
-			var y = aaa.clientY
-			if(eraserEnabled){
-				using = true
-				context.clearRect(x-5,y-5,10,10)
-			}else{
-				using = true
-				lastPoint = {'x':x, 'y':y}
-				console.log(lastPoint)
-				/*drawCircle(x,y,1)*/
-			}
-			
-		}
-		//监听鼠标移动
-		canvas.onmousemove = function(aaa){
-			var x = aaa.clientX
-			var y = aaa.clientY
-			if(eraserEnabled){
-				if(using){
-					context.clearRect(x-5,y-5,10,10)
-				}				
-			}else{
-				if(using){
-			
-				var newPoint = {'x':x, 'y':y}
-				/*drawCircle(x,y,1)*/
-				drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
-				lastPoint = newPoint
-				}else{
-			
-				}
-			}
-		}
-		//监听鼠标松开
-		canvas.onmouseup = function(aaa){
-			using = false
-		}
+        var lastPoint = {'x':undefined, 'y':undefined}
+        
+        //特性检测
+        if(document.body.ontouchstart !== undefined){
+            //触屏设备
+            //监听触摸手机屏幕事件
+            canvas.ontouchstart = function(aaa){
+                //console.log('开始触摸我了')
+                var x = aaa.touches[0].clientX
+                var y = aaa.touches[0].clientY
+                if(eraserEnabled){
+                    using = true
+                    context.clearRect(x-5,y-5,10,10)
+                }else{
+                    using = true
+                    lastPoint = {'x':x, 'y':y}
+                    console.log(lastPoint)
+                    /*drawCircle(x,y,1)*/
+                }
+            }
+
+            canvas.ontouchmove = function(aaa){
+                //console.log('边触摸边移动')
+                var x = aaa.touches[0]clientX
+                var y = aaa.touches[0]clientY
+                if(eraserEnabled){
+                    if(using){
+                        context.clearRect(x-5,y-5,10,10)
+                    }				
+                }else{
+                    if(using){
+                
+                    var newPoint = {'x':x, 'y':y}
+                    /*drawCircle(x,y,1)*/
+                    drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
+                    lastPoint = newPoint
+                    }else{
+                
+                    }
+                }
+            }
+
+            canvas.ontouchend = function(aaa){
+                //console.log('触摸结束')
+                using = false
+            }
+        }else{
+            //非触屏设备（电脑设备）
+            //监听鼠标按下
+            canvas.onmousedown = function(aaa){
+                var x = aaa.clientX
+                var y = aaa.clientY
+                if(eraserEnabled){
+                    using = true
+                    context.clearRect(x-5,y-5,10,10)
+                }else{
+                    using = true
+                    lastPoint = {'x':x, 'y':y}
+                    console.log(lastPoint)
+                    /*drawCircle(x,y,1)*/
+                }
+                
+            }
+            //监听鼠标移动
+            canvas.onmousemove = function(aaa){
+                var x = aaa.clientX
+                var y = aaa.clientY
+                if(eraserEnabled){
+                    if(using){
+                        context.clearRect(x-5,y-5,10,10)
+                    }				
+                }else{
+                    if(using){
+                
+                    var newPoint = {'x':x, 'y':y}
+                    /*drawCircle(x,y,1)*/
+                    drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
+                    lastPoint = newPoint
+                    }else{
+                
+                    }
+                }
+            }
+            //监听鼠标松开
+            canvas.onmouseup = function(aaa){
+                using = false
+            }
+        }		
+        
 		
 		function drawCircle(x,y,radius){
 			context.beginPath()
@@ -131,7 +180,10 @@
 		brush.onclick = function(){
 		  eraserEnabled = false
 		  actions.className = 'actions'
-		}
+        }
+        
+        
+
     </script>
 </body>
 </html>
