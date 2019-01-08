@@ -9,7 +9,7 @@
 	position: fixed;
 	left: 0;
     top: 0;
-    padding: 10px 20px;
+    padding:20px 20px;
 }
 .icon {
     width: 1em; height: 1em;
@@ -20,8 +20,11 @@
  .actions svg {
      width: 30px;
      height: 30px;
+     transition: all 0.3s;
+
  }
  .actions svg.active {
      fill: #ff0000;
+     transform: scale(1.2);
  }
 
