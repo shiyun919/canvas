@@ -18,8 +18,8 @@
     overflow: hidden;
  }
  .actions svg {
-     width: 30em;
-     height: 30em;
+     width: 30px;
+     height: 30px;
  }
  .actions svg.active {
      fill: #ff0000;
