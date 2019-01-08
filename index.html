@@ -11,12 +11,24 @@
 <body>
     <canvas id="canvas" width="1000px" height="1000px"></canvas>
     <div id="actions" class="actions" >
-            <svg id="pen" class="icon" aria-hidden="true">
+            <svg id="pen" class="icon active" aria-hidden="true">
                 <use xlink:href="#icon-pen"></use>
             </svg>
             <svg id="eraser" class="icon" aria-hidden="true">
                 <use xlink:href="#icon-ico-erasertool-May"></use>
             </svg>
+    </div>
+    <div class="colors">
+        <ol>
+            <li id="red" class="red"></li>
+            <li id="blue" class="blue"></li>
+            <li id="grey" class="grey"></li>
+            <li id="blcak" class="black"></li>
+            <li id="yellow" class="yellow"></li>
+            <li id="orange" class="orange"></li>
+            <li id="green" class="green"></li>
+        </ol>
+
     </div>
     <script type="text/javascript">
         var canvas = document.getElementById('canvas');
