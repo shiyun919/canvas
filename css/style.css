@@ -5,7 +5,7 @@
 	display: block;
 	background: green;
 }
-#actions {
+.actions {
 	position: fixed;
 	left: 0;
     top: 0;
@@ -17,11 +17,11 @@
     fill: currentColor;
     overflow: hidden;
  }
- #actions svg {
-     width: 40px;
-     height: 40px;
+ .actions svg {
+     width: 1.5em;
+     height: 1.5em;
  }
- #actions svg.active {
+ .actions svg.active {
      fill: #ff0000;
  }
 
