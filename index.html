@@ -287,6 +287,21 @@
 			lineWidth = 5
 		}
 		
+		//清除内容
+		clear.onclick = function(){
+			context.clearRect(0, 0, canvas.width, canvas.height);
+		}
+
+		//下载保存为图片
+		download.onclick = function(){
+			var url = canvas.toDateURL("image/png")
+			var a = doucument.createELemnet('a')
+			doucument.body.appendChild(a)
+			a.href = url
+			a.download = '我的图片'
+			a.target = '_blank'
+			a.click()
+		}
 
 		/*//监听手机触屏事件
 		//监听触摸屏幕
