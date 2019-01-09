@@ -191,10 +191,14 @@
 		var eraserEnabled = false
 		  eraser.onclick = function() {
 		  eraserEnabled =true
+		  eraser.classList.add('active')
+		  pen.classList.remove('active')
 		
 		}
 		  pen.onclick = function(){
 		  eraserEnabled = false
+		  pen.classList.add('active')
+		  eraser.classList.remove('active')
 		}
 		/*//监听手机触屏事件
 		//监听触摸屏幕
