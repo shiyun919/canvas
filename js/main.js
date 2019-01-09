@@ -11,94 +11,101 @@ var canvas = document.getElementById('canvas');
 		window.onresize = function(){
 			setCanvasSize()
 		}
-		
-		
-		/*context.fillStyle = 'green';//填充矩形颜色
-		context.fillRect(10, 10, 100, 100);//填充矩形
-		
-		context.strokeStyle = 'red';//绘制矩形颜色（指描边）
-		context.strokeRect(10, 10, 100, 100);//绘制矩形
-		
-		context.clearRect(30,30,20,20);//清除（擦掉）矩形，橡皮擦
-		
-		
-		//绘制三角形
-		context.beginPath();
-		context.moveTo(600,600);
-		context.lineTo(900,600);
-		context.lineTo(900,1000);
-		context.fill();
-		
-		//绘制圆形
-		context.beginPath();
-		context.arc(300,300,50,0,Math.PI*2);
-		context.stroke();
-		context.fill();
-		
-		//绘制线
-		context.beginPath()
-		context.moveTo(0,0)//起点
-		context.lineWidth = 10
-		context.lineTo(600,0)//终点
-		context.stroke()
-		context.closePath()*/
-		
-		/****/
+
+		//声明变量
 		var context = canvas.getContext('2d');//2d是二次元的意思
 		var using = false
 		var lastPoint = {'x':undefined, 'y':undefined}
-		//监听鼠标按下
-		canvas.onmousedown = function(aaa){
-			var x = aaa.clientX
-			var y = aaa.clientY
-			if(eraserEnabled){
-				using = true
-				context.clearRect(x-5,y-5,10,10)
-			}else{
-				using = true
-				lastPoint = {'x':x, 'y':y}
-				console.log(lastPoint)
-				/*drawCircle(x,y,1)*/
-			}
-			
-		}
-		//监听鼠标移动
-		canvas.onmousemove = function(aaa){
-			var x = aaa.clientX
-			var y = aaa.clientY
-			if(eraserEnabled){
-				if(using){
+		var lineWidth = 2
+
+		//特性检测
+		if(document.body.ontouchstart !== undefined){
+			//触屏设备（一般指手机平板）
+			//监听触摸屏幕
+			canvas.ontouchstart = function(aaa){
+				var x = aaa.touches[0].clientX
+				var y = aaa.touches[0].clientY
+				if(eraserEnabled){
+					using = true
 					context.clearRect(x-5,y-5,10,10)
-				}				
-			}else{
-				if(using){
-			
-				var newPoint = {'x':x, 'y':y}
-				/*drawCircle(x,y,1)*/
-				drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
-				lastPoint = newPoint
 				}else{
-			
+					using = true
+					lastPoint = {'x':x, 'y':y}
 				}
 			}
-		}
-		//监听鼠标松开
-		canvas.onmouseup = function(aaa){
-			using = false
-		}
+			//监听边触摸边移动
+			canvas.ontouchmove = function(aaa){
+				var x = aaa.touches[0].clientX
+				var y = aaa.touches[0].clientY
+				if(eraserEnabled){
+					if(using){
+						context.clearRect(x-5,y-5,10,10)
+					}				
+				}else{
+					if(using){
+				
+					var newPoint = {'x':x, 'y':y}
+					drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
+					lastPoint = newPoint
+					}else{
+				
+					}
+				}
+			}
+			//监听松开触屏
+			canvas.ontouchend = function(aaa){
+				using = false
+			}
+		}else{
+			//非触屏设备（一般指电脑）
+			//监听鼠标按下
+			canvas.onmousedown = function(aaa){
+				var x = aaa.clientX
+				var y = aaa.clientY
+				if(eraserEnabled){
+					using = true
+					context.clearRect(x-5,y-5,10,10)
+				}else{
+					using = true
+					lastPoint = {'x':x, 'y':y}
+				}
+			}
+			//监听鼠标移动
+			canvas.onmousemove = function(aaa){
+				var x = aaa.clientX
+				var y = aaa.clientY
+				if(eraserEnabled){
+					if(using){
+						context.clearRect(x-5,y-5,10,10)
+					}				
+				}else{
+					if(using){
+				
+					var newPoint = {'x':x, 'y':y}
+					drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
+					lastPoint = newPoint
+					}else{
+				
+					}
+				}
+			}
+			//监听鼠标松开
+			canvas.onmouseup = function(aaa){
+				using = false
+			}
+		}		
 		
+		//绘制圆形
 		function drawCircle(x,y,radius){
 			context.beginPath()
-			context.fillStyle = 'black'
 			context.arc(x,y,radius,0,Math.PI*2)
 			context.fill()
 		}
-		
+		//绘制线
 		function drawLine(x1,y1,x2,y2){
 			context.beginPath()
-			context.strokeStyle = 'black'
 			context.moveTo(x1,y1)//起点
-			context.lineWidth = 5
+			context.lineWidth = lineWidth
 			context.lineTo(x2,y2)//终点
 			context.stroke()
 			context.closePath()
@@ -108,10 +115,115 @@ var canvas = document.getElementById('canvas');
 		var eraserEnabled = false
 		  eraser.onclick = function() {
 		  eraserEnabled =true
-		  actions.className = 'actions x'
+		  eraser.classList.add('active')
+		  pen.classList.remove('active')
 		
 		}
-		brush.onclick = function(){
+		  pen.onclick = function(){
 		  eraserEnabled = false
-		  actions.className = 'actions'
+		  pen.classList.add('active')
+		  eraser.classList.remove('active')
+		}
+
+		//监听点击哪个颜色画笔就是哪种颜色
+		black.onclick = function(){
+			context.fillStyle = 'black'
+			context.strokeStyle = 'black'
+			black.classList.add('active')
+			red.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.remove('active')
+			grey.classList.remove('active')
+			yellow.classList.remove('active')
+			orange.classList.remove('active')
+		}
+		red.onclick = function(){
+			context.fillStyle = 'red'
+			context.strokeStyle = 'red'
+			red.classList.add('active')
+			black.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.remove('active')
+			grey.classList.remove('active')
+			yellow.classList.remove('active')
+			orange.classList.remove('active')
+		}
+		blue.onclick = function(){
+			context.fillStyle = 'blue'
+			context.strokeStyle = 'blue'
+			black.classList.remove('active')
+			red.classList.remove('active')
+			blue.classList.add('active')
+			green.classList.remove('active')
+			grey.classList.remove('active')
+			yellow.classList.remove('active')
+			orange.classList.remove('active')
+		}
+		green.onclick = function(){
+			context.fillStyle = 'green'
+			context.strokeStyle = 'green'
+			black.classList.remove('active')
+			red.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.add('active')
+			grey.classList.remove('active')
+			yellow.classList.remove('active')
+			orange.classList.remove('active')
+		}
+		grey.onclick = function(){
+			context.fillStyle = 'grey'
+			context.strokeStyle = 'grey'
+			black.classList.remove('active')
+			red.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.remove('active')
+			grey.classList.add('active')
+			yellow.classList.remove('active')
+			orange.classList.remove('active')
+		}
+		yellow.onclick = function(){
+			context.fillStyle = 'yellow'
+			context.strokeStyle = 'yellow'
+			black.classList.remove('active')
+			red.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.remove('active')
+			grey.classList.remove('active')
+			yellow.classList.add('active')
+			orange.classList.remove('active')
+		}
+		orange.onclick = function(){
+			context.fillStyle = 'orange'
+			context.strokeStyle = 'orange'
+			black.classList.remove('active')
+			red.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.remove('active')
+			grey.classList.remove('active')
+			yellow.classList.remove('active')
+			orange.classList.add('active')
+		}
+
+		//监听使用粗/细线
+		thin.onclick = function(){
+			lineWidth = 2
+		}
+		thick.onclick = function(){
+			lineWidth = 5
+		}
+		
+		//清除内容
+		clear.onclick = function(){
+			context.clearRect(0, 0, canvas.width, canvas.height);
+		}
+
+		//下载保存为图片
+		download.onclick = function(){
+			var url = canvas.toDataURL("image/png")
+			var a = document.createElement('a')
+			document.body.appendChild(a)
+			a.href = url
+			a.download = '我的图片'
+			a.target = '_blank'
+			a.click()
 		}
