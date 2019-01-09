@@ -199,6 +199,87 @@
 		  pen.classList.add('active')
 		  eraser.classList.remove('active')
 		}
+
+		//监听点击哪个颜色画笔就是哪种颜色
+		black.onclick = function(){
+			context.fillStyle = 'black'
+			context.strokeStyle = 'black'
+			black.classList.add('active')
+			red.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.remove('active')
+			grey.classList.remove('active')
+			yellow.classList.remove('active')
+			orange.classList.remove('active')
+		}
+		red.onclick = function(){
+			context.fillStyle = 'red'
+			context.strokeStyle = 'red'
+			red.classList.add('active')
+			black.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.remove('active')
+			grey.classList.remove('active')
+			yellow.classList.remove('active')
+			orange.classList.remove('active')
+		}
+		blue.onclick = function(){
+			context.fillStyle = 'blue'
+			context.strokeStyle = 'blue'
+			black.classList.remove('active')
+			red.classList.remove('active')
+			blue.classList.add('active')
+			green.classList.remove('active')
+			grey.classList.remove('active')
+			yellow.classList.remove('active')
+			orange.classList.remove('active')
+		}
+		green.onclick = function(){
+			context.fillStyle = 'green'
+			context.strokeStyle = 'green'
+			black.classList.remove('active')
+			red.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.add('active')
+			grey.classList.remove('active')
+			yellow.classList.remove('active')
+			orange.classList.remove('active')
+		}
+		grey.onclick = function(){
+			context.fillStyle = 'grey'
+			context.strokeStyle = 'grey'
+			black.classList.remove('active')
+			red.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.remove('active')
+			grey.classList.add('active')
+			yellow.classList.remove('active')
+			orange.classList.remove('active')
+		}
+		yellow.onclick = function(){
+			context.fillStyle = 'yellow'
+			context.strokeStyle = 'yellow'
+			black.classList.remove('active')
+			red.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.remove('active')
+			grey.classList.remove('active')
+			yellow.classList.add('active')
+			orange.classList.remove('active')
+		}
+		orange.onclick = function(){
+			context.fillStyle = 'orange'
+			context.strokeStyle = 'orange'
+			black.classList.remove('active')
+			red.classList.remove('active')
+			blue.classList.remove('active')
+			green.classList.remove('active')
+			grey.classList.remove('active')
+			yellow.classList.remove('active')
+			orange.classList.add('active')
+		}
+		
+
 		/*//监听手机触屏事件
 		//监听触摸屏幕
 		canvas.ontouchstart = function(){
