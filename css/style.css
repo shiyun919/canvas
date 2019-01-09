@@ -7,7 +7,6 @@ ul,ol {
 }
 #canvas {
 	display: block;
-	background: green;
 }
 .actions {
 	position: fixed;
