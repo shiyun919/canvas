@@ -71,3 +71,23 @@ ul,ol {
 .colors > ol > li.active {
     transform: scale(1.2);
 }
+.sizes {
+    position: fixed;
+	right: 0;
+    top: 0;
+    padding:20px 20px;
+}
+.sizes > ol > li {
+    float: left;
+    margin: 0 10px;
+}
+.sizes > ol > li.thin {
+    width: 20px;
+    height: 0;
+    border-top: 2px solid #000;
+}
+sizes > ol > li.thick {
+    width: 20px;
+    height: 0;
+    border-top: 5px solid #000;
+}
