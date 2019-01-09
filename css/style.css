@@ -43,3 +43,27 @@ ul,ol {
     border-radius: 50%;
     margin: 20px 20px;
 }
+.colors > ol > li.red {
+    background: red;
+}
+.colors > ol > li.green {
+    background: green;
+}
+.colors > ol > li.black {
+    background: black;
+}
+.colors > ol > li.grey {
+    background: grey;
+}
+.colors > ol > li.blue {
+    background: blue;
+}
+.colors > ol > li.yellow {
+    background: yellow;
+}
+.colors > ol > li.orange {
+    background: orange;
+}
+.colors > ol > li.active {
+    transform: scale(1.2);
+}

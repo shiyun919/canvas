@@ -170,7 +170,6 @@
 		
 		function drawCircle(x,y,radius){
 			context.beginPath()
-			context.fillStyle = 'black'
 			context.arc(x,y,radius,0,Math.PI*2)
 			context.fill()
 		}
@@ -199,6 +198,35 @@
           eraser.classList.remove('active')
         }
         
+        //监听点击哪个颜色画笔就是哪个颜色
+        red.onclick = function(){
+            context.fillStyle = 'red'
+            context.strokeStyle = 'red'
+        }
+        green.onclick = function(){
+            context.fillStyle = 'green'
+            context.strokeStyle = 'green'
+        }
+        black.onclick = function(){
+            context.fillStyle = 'black'
+            context.strokeStyle = 'black'
+        }
+        grey.onclick = function(){
+            context.fillStyle = 'grey'
+            context.strokeStyle = 'grey'
+        }
+        blue.onclick = function(){
+            context.fillStyle = 'blue'
+            context.strokeStyle = 'blue'
+        }
+        yellow.onclick = function(){
+            context.fillStyle = 'yellow'
+            context.strokeStyle = 'yellow'
+        }
+        orange.onclick = function(){
+            context.fillStyle = 'orange'
+            context.strokeStyle = 'orange'
+        }
         
 
     </script>
