@@ -39,7 +39,7 @@ ul,ol {
      fill: #ff0000;
      transform: scale(1.2);
  }
-/*.colors {
+.colors {
     position: fixed;
     left: 0;
     top: 60px;
@@ -96,4 +96,4 @@ ul,ol {
     height: 0;
     border-top: 5px solid #000;
     margin: 8px 10px;
-}*/
+}
