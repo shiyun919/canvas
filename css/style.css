@@ -84,15 +84,16 @@ ul,ol {
 }
 .sizes > ol > li {
     float: left;
-    margin: 0 10px;
 }
 .sizes > ol > li.thin {
     width: 20px;
     height: 0;
     border-top: 2px solid #000;
+    margin: 10px 10px;
 }
 .sizes > ol > li.thick {
     width: 20px;
     height: 0;
     border-top: 5px solid #000;
+    margin: 10px 10px;
 }
