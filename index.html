@@ -7,7 +7,6 @@
     <title>我的画板</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
 	<script src="//at.alicdn.com/t/font_1003331_jdm7ktbow4.js" type="text/javascript"></script>
-	<script src="./js/main.js" type="text/javascript"></script>
 </head>
 <body>
     <canvas id="canvas" width="1000px" height="1000px"></canvas>
@@ -42,7 +41,7 @@
 			<li id="thick" class="thick"></li>
 		</ol>
 	</div>
-   <!-- <script type="text/javascript">
+    <script type="text/javascript">
 		var canvas = document.getElementById('canvas');
 		setCanvasSize()
 		
@@ -57,42 +56,6 @@
 			setCanvasSize()
 		}
 		
-		
-		/*context.fillStyle = 'green';//填充矩形颜色
-		context.fillRect(10, 10, 100, 100);//填充矩形
-		
-		context.strokeStyle = 'red';//绘制矩形颜色（指描边）
-		context.strokeRect(10, 10, 100, 100);//绘制矩形
-		
-		context.clearRect(30,30,20,20);//清除（擦掉）矩形，橡皮擦
-		
-		
-		//绘制三角形
-		context.beginPath();
-		context.moveTo(600,600);
-		context.lineTo(900,600);
-		context.lineTo(900,1000);
-		context.fill();
-		
-		//绘制圆形
-		context.beginPath();
-		context.arc(300,300,50,0,Math.PI*2);
-		context.stroke();
-		context.fill();
-		
-		//绘制线
-		context.beginPath()
-		context.moveTo(0,0)//起点
-		context.lineWidth = 10
-		context.lineTo(600,0)//终点
-		context.stroke()
-		context.closePath()*/
-		
-		/****/
-		/*//禁止手机屏幕滚动
-		document.body.ontouchstart = function(eee){
-			eee.preventDefault()
-		}*/
 
 		//声明变量
 		var context = canvas.getContext('2d');//2d是二次元的意思
@@ -310,6 +273,42 @@
 			a.click()
 		}
 
+		/*context.fillStyle = 'green';//填充矩形颜色
+		context.fillRect(10, 10, 100, 100);//填充矩形
+		
+		context.strokeStyle = 'red';//绘制矩形颜色（指描边）
+		context.strokeRect(10, 10, 100, 100);//绘制矩形
+		
+		context.clearRect(30,30,20,20);//清除（擦掉）矩形，橡皮擦
+		
+		
+		//绘制三角形
+		context.beginPath();
+		context.moveTo(600,600);
+		context.lineTo(900,600);
+		context.lineTo(900,1000);
+		context.fill();
+		
+		//绘制圆形
+		context.beginPath();
+		context.arc(300,300,50,0,Math.PI*2);
+		context.stroke();
+		context.fill();
+		
+		//绘制线
+		context.beginPath()
+		context.moveTo(0,0)//起点
+		context.lineWidth = 10
+		context.lineTo(600,0)//终点
+		context.stroke()
+		context.closePath()*/
+		
+		/****/
+		/*//禁止手机屏幕滚动
+		document.body.ontouchstart = function(eee){
+			eee.preventDefault()
+		}*/
+
 		/*//监听手机触屏事件
 		//监听触摸屏幕
 		canvas.ontouchstart = function(){
@@ -323,7 +322,7 @@
 		canvas.ontouchend = function(){
 			console.log('触屏松开')
 		}*/
-	</script>-->
+	</script>
 </body>
 </html>
 
