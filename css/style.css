@@ -1,3 +1,7 @@
+/*禁用滚动条的样式*/
+body {
+    overflow: hidden;
+}
 * {
     margin: 0;
     padding: 0;
