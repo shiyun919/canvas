@@ -81,7 +81,7 @@
 				}
 			}
 			//监听边触摸边移动
-			canvas。ontouchmove = function(aaa){
+			canvas.ontouchmove = function(aaa){
 				var x = aaa.touches[0].clientX
 				var y = aaa.touches[0].clientY
 				if(eraserEnabled){
@@ -116,7 +116,6 @@
 					using = true
 					lastPoint = {'x':x, 'y':y}
 				}
-				
 			}
 			//监听鼠标移动
 			canvas.onmousemove = function(aaa){
