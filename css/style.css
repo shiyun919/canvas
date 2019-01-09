@@ -15,7 +15,11 @@ ul,ol {
     clear: both;
 }
 #canvas {
-	display: block;
+    display: block;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 .actions {
 	position: fixed;
