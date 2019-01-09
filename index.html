@@ -88,6 +88,12 @@
 		context.closePath()*/
 		
 		/****/
+		//禁止手机屏幕滚动
+		document.body.ontouchstart = function(eee){
+			eee.preventDefault()
+		}
+
+		//声明变量
 		var context = canvas.getContext('2d');//2d是二次元的意思
 		var using = false
 		var lastPoint = {'x':undefined, 'y':undefined}
@@ -295,8 +301,8 @@
 		//下载保存为图片
 		download.onclick = function(){
 			var url = canvas.toDateURL("image/png")
-			var a = doucument.createELemnet('a')
-			doucument.body.appendChild(a)
+			var a = document.createELemnet('a')
+			document.body.appendChild(a)
 			a.href = url
 			a.download = '我的图片'
 			a.target = '_blank'
