@@ -172,16 +172,14 @@
 		//绘制圆形
 		function drawCircle(x,y,radius){
 			context.beginPath()
-			context.fillStyle = 'black'
 			context.arc(x,y,radius,0,Math.PI*2)
 			context.fill()
 		}
 		//绘制线
 		function drawLine(x1,y1,x2,y2){
 			context.beginPath()
-			context.strokeStyle = 'black'
 			context.moveTo(x1,y1)//起点
-			context.lineWidth = 5
+			context.lineWidth = lineWidth
 			context.lineTo(x2,y2)//终点
 			context.stroke()
 			context.closePath()
