@@ -9,7 +9,7 @@ body {
 ul,ol {
     list-style-type: none;
 }
-.clearfix:after {
+.clearfix::after {
     content: "";
     display: block;
     clear: both;
