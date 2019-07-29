@@ -16,10 +16,10 @@ ul,ol {
 }
 #canvas {
     display: block;
-    background: #fff;
     position: fixed;
     left: 0;
     top: 0;
+    background: #cbecb9;
 }
 .actions {
 	position: fixed;
